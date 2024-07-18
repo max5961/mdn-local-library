@@ -1,0 +1,15 @@
+extends layout
+
+block content
+    p #[strong Title: ] #{copy.book.title}
+    p #[strong Copy ID: ] #{copy._id}
+    p #[strong Imprint: ] #{copy.imprint}
+    p #[strong status: ] #{copy.status}
+    p #[strong due_back: ] #{copy.due_back_formatted}
+    p Do you really want to delete this copy of #{copy.book.title}?
+
+    form(method="POST")
+        div.form-group
+            input#authorid.form-control(type="hidden", name="bookinstanceid", value=copy._id)
+
+        button.btn.btn-primary(type="submit") Delete

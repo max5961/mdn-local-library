@@ -1,0 +1,24 @@
+extends layout
+
+block content
+
+    h1 #{title}: #{book.title}
+    p Author: #{book.author.name}
+
+    if instances.length
+
+        p #[strong Delete the following copies before you even attempt to delete this book again son, or else its curtains for you.]
+        div(style="margin-left: 20px; margin-top: 20px")
+            h4 Copies
+            dl
+                each instance in instances
+                    p
+                    a(href=instance.url) #{instance._id}
+    else
+        p Do you really want to delete this Book?
+
+        form(method="POST")
+            div.form-group
+                input#authorid.form-control(type="hidden", name="bookid", value=book._id)
+
+            button.btn.btn-primary(type="submit") Delete

@@ -1,0 +1,25 @@
+extends layout
+
+block content
+
+    h1 Delete Genre: #{genre.name}
+
+    if books.length
+
+        p #[strong Remove the following books (or update their genres) before even attempting to delete this genre again bro..]
+        div(style="margin-left: 20px; margin-top: 20px")
+            h4 Books that are of this genre you are trying to delete
+            dl
+                each book in books
+                    p
+                    a(href=book.url) #{book.title}
+    else
+        p Bro are you actually sure you want to delete this genre?
+
+        form(method="POST")
+            div.form-group
+                input#authorid.form-control(type="hidden", name="genreid", value=genre._id)
+
+            button.btn.btn-primary(type="submit") Delete
+
+
