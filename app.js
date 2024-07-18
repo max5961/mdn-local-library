@@ -19,6 +19,7 @@ const mongoose = require("mongoose");
 mongoose.set("strictQuery", false);
 
 const mongoDB = process.env.MONGODB_URI || process.env.DEV_DB_URL;
+console.log(mongoDB);
 
 mongoose
     .connect(mongoDB)
