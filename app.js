@@ -29,13 +29,13 @@ mongoose
 
 const app = express();
 
-const RateLimit = require("express-rate-limit");
-const limiter = RateLimit({
-    windowMs: 1 * 60 * 1000,
-    max: 20,
-});
-
-app.use(limiter);
+// const RateLimit = require("express-rate-limit");
+// const limiter = RateLimit({
+//     windowMs: 1 * 60 * 1000,
+//     max: 20,
+// });
+//
+// app.use(limiter);
 
 // view engine setup
 app.set("views", path.join(__dirname, "views"));
